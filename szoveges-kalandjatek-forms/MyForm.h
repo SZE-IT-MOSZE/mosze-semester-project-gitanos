@@ -105,12 +105,16 @@ namespace $safeprojectname$ {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(719, 466);
+			this->ClientSize = System::Drawing::Size(782, 453);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->storyLabel);
+			this->MaximizeBox = false;
+			this->MaximumSize = System::Drawing::Size(800, 500);
+			this->MinimumSize = System::Drawing::Size(800, 500);
 			this->Name = L"MyForm";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"MyForm";
 			this->ResumeLayout(false);
 			this->PerformLayout();
