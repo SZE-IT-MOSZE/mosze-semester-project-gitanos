@@ -1,4 +1,8 @@
 #pragma once
+#include <fstream>
+#include <iostream>
+#include <string>
+#include "ReadStory.h"
 
 namespace $safeprojectname$ {
 
@@ -8,7 +12,6 @@ namespace $safeprojectname$ {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-
 	/// <summary>
 	/// Summary for MyForm
 	/// </summary>
@@ -124,7 +127,11 @@ namespace $safeprojectname$ {
 	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void button1_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-		storyLabel->Text = "BUTT ON XD";storyLabel->Refresh();
+		//storyLabel->Text = "BUTT ON XD";storyLabel->Refresh();
+		nextStory* s = new nextStory();
+		System::String^ *str = s->baseText;
+		storyLabel->Text = *str;
+		delete s;
 	}
 };
 }
