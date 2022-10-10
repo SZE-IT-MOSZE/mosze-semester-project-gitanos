@@ -128,10 +128,8 @@ namespace $safeprojectname$ {
 	}
 	private: System::Void button1_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
 		//storyLabel->Text = "BUTT ON XD";storyLabel->Refresh();
-		nextStory* s = new nextStory();
-		System::String^ *str = s->baseText;
-		storyLabel->Text = *str;
-		delete s;
+		nextStory text("_start.game");
+		storyLabel->Text = text.baseText;
 	}
 };
 }

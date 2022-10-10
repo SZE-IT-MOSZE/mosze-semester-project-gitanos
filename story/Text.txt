@@ -1,6 +1,0 @@
-Text to display.
-
-Could be multiple lines!
-|option1
-|option2
-|option3

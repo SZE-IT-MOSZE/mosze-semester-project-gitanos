@@ -30,9 +30,4 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
-  <ItemGroup>
-    <Text Include="Text.txt">
-      <Filter>Story</Filter>
-    </Text>
-  </ItemGroup>
 </Project>
