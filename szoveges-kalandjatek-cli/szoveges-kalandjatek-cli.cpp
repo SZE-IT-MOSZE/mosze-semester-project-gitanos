@@ -4,12 +4,15 @@
 #include <fstream>
 #include <iostream>
 #include <sstream>
+#include <windows.h>
 
 using namespace std;
 
 // misc functions to shorten code
 namespace functions { 
+
     vector<string> split(string s, string delimiter) {
+
         size_t pos_start = 0, pos_end, delim_len = delimiter.length();
         string token;
         vector<string> res;
@@ -22,22 +25,38 @@ namespace functions {
 
         res.push_back(s.substr(pos_start));
         return res;
+
+    }
+
+    void set_console_appearance() {
+
+        CONSOLE_FONT_INFOEX cfi;
+        cfi.cbSize = sizeof(cfi);
+        cfi.nFont = 0;
+        cfi.dwFontSize.X = 0;                   // Width of each character in the font
+        cfi.dwFontSize.Y = 24;                  // Height
+        cfi.FontFamily = FF_DONTCARE;
+        cfi.FontWeight = FW_NORMAL;
+        SetCurrentConsoleFontEx(GetStdHandle(STD_OUTPUT_HANDLE), FALSE, &cfi);
+
+        HWND console = GetConsoleWindow();
+        MoveWindow(console, 100, 100, 800, 600, TRUE);
+
     }
 }
 
 class Story {
 
 public:
-    string title;
     string body;
+    vector<string> btn_texts;
     vector<string> btn_links;
-    short option;
 
-    Story(vector<string> btn_links, short option = 0) { open_link(btn_links[option]); }
+    Story(string btn_link) { open_link(btn_link); }
 
     void open_link(string btn_link) {
         std::ifstream in_file;
-        in_file.open("../story/" + btn_link); // open the input file
+        in_file.open("../story/" + btn_link + ".game"); // open the input file
         std::stringstream str_stream;
         str_stream << in_file.rdbuf(); // read the file
 
@@ -45,25 +64,27 @@ public:
         string raw_text = str_stream.str(); // str holds the content of the file
 
         vector<string> text_array = functions::split(raw_text, "|");
-        for (short i = 1; i < text_array.size(); i++) {
-            btn_links.push_back(text_array[i]);
+        for (int i = 1; i < text_array.size(); i++) {
+            vector<string> btn_parts = functions::split(text_array[i], ">");
+            btn_texts.push_back(btn_parts[0]);
+            btn_links.push_back(btn_parts[1].erase(btn_parts[1].find_last_not_of(" \n\r\t") + 1));
         }
-
+        
         body = text_array[0];
 
     }
 
 };
 
-class Game {
+class Game_Handler {
 
 public:
-    Game(Story start_story) { next_story(start_story); }
+    Game_Handler(Story start_story) { next_story(start_story); }
     void next_story(Story next_story) {
-        cout << next_story.title << endl;
+
         cout << next_story.body << endl;
-        for (short i = 0; i < next_story.btn_links.size(); i++) {
-            cout << i << ": " << next_story.btn_links[i];
+        for (short i = 0; i < next_story.btn_texts.size(); i++) {
+            cout << i << ": " << next_story.btn_texts[i] << endl;
         }
 
     }
@@ -72,10 +93,24 @@ public:
 
 
 int main() {
-    vector<string> v = { "_start.game", "", "" };
-    Story* s = new Story(v);
-    Game* g = new Game(*s);
+    short option;
+    string link = "_start";
+
+    functions::set_console_appearance();
+
+    Story* s = new Story(link);
+    Game_Handler* g = new Game_Handler(*s);
+    while (link != "") {
+        cin >> option;
+        link = s->btn_links[option];
+        delete s;
+
+        system("CLS");
+
+        s = new Story(link);
+        g->next_story(*s);
+    }
     delete s;
     delete g;
-
+    system("PAUSE");
 }
