@@ -18,6 +18,7 @@ public:
 	array<System::String^>^ btn2Attr; System::String^ btn2Text, ^ btn2Action; // attr = [text;action]
 	array<System::String^>^ btn3Attr; System::String^ btn3Text, ^ btn3Action; // attr = [text;action]
 
+
 	System::String^ filePath; // let the caller tell which file to open
 
 	void openFile() {
@@ -33,9 +34,11 @@ public:
 		array<System::String^>^ fullTextArray = fullText->Split('|');
 
 		baseText = fullTextArray[0];
+    
 		btn1Attr = fullTextArray[1]->Split('>'); btn1Text = btn1Attr[0]; btn1Action = btn1Attr[1];
 		btn2Attr = fullTextArray[2]->Split('>'); btn2Text = btn2Attr[0]; btn2Action = btn2Attr[1];
 		btn3Attr = fullTextArray[3]->Split('>'); btn3Text = btn3Attr[0]; btn3Action = btn3Attr[1];
 		
 	}
 };
+
