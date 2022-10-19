@@ -72,9 +72,9 @@ namespace $safeprojectname$ {
 			this->storyLabel->Name = L"storyLabel";
 			this->storyLabel->Size = System::Drawing::Size(606, 32);
 			this->storyLabel->TabIndex = 1;
-			this->storyLabel->Text = L"Itt lesz a sztori leírása. Megpróbálok minél hosszabb szöveget írni, hogy megláss"
-				L"uk, jó-e a többsoros változathoz ez a tool!";
-			this->storyLabel->Click += gcnew System::EventHandler(this, &MyForm::label1_Click);
+			this->storyLabel->Text = L"Itt lesz a sztori leÃ­rÃ¡sa. MegprÃ³bÃ¡lok minÃ©l hosszabb szÃ¶veget Ã­rni, hogy meglÃ¡ss"
+				L"uk, jÃ³-e a tÃ¶bbsoros vÃ¡ltozathoz ez a tool!";
+
 			// 
 			// button1
 			// 
@@ -84,7 +84,8 @@ namespace $safeprojectname$ {
 			this->button1->TabIndex = 2;
 			this->button1->Text = L"button1";
 			this->button1->UseVisualStyleBackColor = true;
-			this->button1->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MyForm::button1_MouseClick);
+			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+
 			// 
 			// button2
 			// 
@@ -94,6 +95,9 @@ namespace $safeprojectname$ {
 			this->button2->TabIndex = 3;
 			this->button2->Text = L"button2";
 			this->button2->UseVisualStyleBackColor = true;
+      
+			this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click);
+
 			// 
 			// button3
 			// 
@@ -103,6 +107,9 @@ namespace $safeprojectname$ {
 			this->button3->TabIndex = 4;
 			this->button3->Text = L"button3";
 			this->button3->UseVisualStyleBackColor = true;
+      
+			this->button3->Click += gcnew System::EventHandler(this, &MyForm::button3_Click);
+      
 			// 
 			// MyForm
 			// 
@@ -124,12 +131,48 @@ namespace $safeprojectname$ {
 
 		}
 #pragma endregion
-	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	private: 
+		System::String^ btn1Action, ^ btn2Action, ^ btn3Action;
+
+		System::String^ modifyText(System::String^ action, int btnId) {
+
+		nextStory^ text = gcnew nextStory("_start.game");
+
+		storyLabel->Text = text->baseText;
+		button1->Text = text->btn1Text;
+		button2->Text = text->btn2Text;
+		button3->Text = text->btn3Text;
+
+		switch (btnId)
+		{
+		case 1:
+			return text->btn1Action;
+			break;
+		case 2:
+			return text->btn2Action;
+			break;
+		case 3:
+			return text->btn3Action;
+			break;
+		default:
+			return L"_start";
+			break;
+		}
 	}
-	private: System::Void button1_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-		//storyLabel->Text = "BUTT ON XD";storyLabel->Refresh();
-		nextStory text("_start.game");
-		storyLabel->Text = text.baseText;
+
+#pragma region onClicks
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		modifyText(btn1Action, 1);
 	}
+	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+		modifyText(btn2Action, 2);
+	}
+	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+		modifyText(btn3Action, 3);
+	}
+#pragma endregion
+
+
 };
 }
