@@ -1,0 +1,17 @@
+Specifikáció leadása - határidő 7. hét
+FIGYELEM! A specifikáció leadási határideje a 7. hétre változott, 2022.10.24-re!
+
+A specifikáció leadása PDF formátumban.
+
+
+Alapvetően a specifikáció megfogalmazásában szabad kezet kapnak a hallgatók. A specifikációnak a következőt kell tartalmaznia:
+
+	- Történetvázlat elkészítése
+	- Használati esetek táblázatos felsorolása (megnevezés, prioritás, leírás), használati esetek esetleges ábrázolása
+	- A program főbb strukturális elemeinek vázlatos azonosítása (célszerűen UML class diagramon)
+	- Program viselkedés analizálása, folyamatábra vagy állapotgép formájában
+	- Történet tárolási szerkezetének fájlformátuma (séma)
+	- Adatfolyam diagram készítése a fájlműveletek jelölésével ajánlott
+	- Bármilyen diagram, mindmap ami az ötletelés során szignfikánsan hozzájárult a terv elkészítéséhez
+
+Irányadó oldalszám: legalább 15 oldal, max. ~50 oldal 
