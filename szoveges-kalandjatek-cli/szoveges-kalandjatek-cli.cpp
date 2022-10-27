@@ -93,6 +93,8 @@ public:
 
 
 int main() {
+    system("chcp 1252");
+    system("CLS");
     short option;
     string link = "_start";
 

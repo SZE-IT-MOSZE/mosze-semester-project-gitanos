@@ -1,10 +1,7 @@
-Welcome to the Caveman game!
+Szia Kristóf!
 
-Please pick your gender. 
+Gratulálunk, sikeres érettségi vizsgát tettél. 
+Hogyan tovább?
 
-
-(No, it does not matter at all)
-
-|Man>1_chapter_start
-|W*man>1_chapter_start
-|Apache Helicopter>easter_no_gender
+|Elmegyek dolgozni>1_chapter_start
+|Jöhet a SZE!>1_chapter_start
