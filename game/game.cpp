@@ -9,7 +9,7 @@
 using namespace std;
 
 // misc functions to shorten code
-namespace functions { 
+namespace functions {
 
     vector<string> split(string s, string delimiter) {
 
@@ -28,19 +28,20 @@ namespace functions {
 
     }
 
-    void set_console_appearance() {
+    void set_console_appearance(short size) {
 
         CONSOLE_FONT_INFOEX cfi;
-        cfi.cbSize = sizeof(cfi);
+        cfi.cbSize = sizeof cfi;
         cfi.nFont = 0;
-        cfi.dwFontSize.X = 0;                   // Width of each character in the font
-        cfi.dwFontSize.Y = 24;                  // Height
+        cfi.dwFontSize.X = 0;
+        cfi.dwFontSize.Y = size;
         cfi.FontFamily = FF_DONTCARE;
         cfi.FontWeight = FW_NORMAL;
+        wcscpy_s(cfi.FaceName, L"Consolas");
         SetCurrentConsoleFontEx(GetStdHandle(STD_OUTPUT_HANDLE), FALSE, &cfi);
 
         HWND console = GetConsoleWindow();
-        MoveWindow(console, 100, 100, 800, 600, TRUE);
+        MoveWindow(console, 100, 100, 1000, 600, TRUE);
 
     }
 }
@@ -51,10 +52,20 @@ public:
     string body;
     vector<string> btn_texts;
     vector<string> btn_links;
+    bool is_art = false;
 
     Story(string btn_link) { open_link(btn_link); }
 
     void open_link(string btn_link) {
+        int pos = btn_link.find(".");
+        if (pos != -1) {
+            if (btn_link.substr(pos) == ".art") {
+                is_art = true;
+            }
+            else {
+                is_art = false;
+            }
+        }
         std::ifstream in_file;
         in_file.open("../story/" + btn_link + ".game"); // open the input file
         std::stringstream str_stream;
@@ -69,7 +80,7 @@ public:
             btn_texts.push_back(btn_parts[0]);
             btn_links.push_back(btn_parts[1].erase(btn_parts[1].find_last_not_of(" \n\r\t") + 1));
         }
-        
+
         body = text_array[0];
 
     }
@@ -93,14 +104,14 @@ public:
 
 
 int main() {
-    system("chcp 1252");
+    system("utf8");
     system("CLS");
     short option;
     string link = "_start";
 
-    functions::set_console_appearance();
-
     Story* s = new Story(link);
+    functions::set_console_appearance(20);
+
     Game_Handler* g = new Game_Handler(*s);
     while (link != "") {
         cin >> option;
@@ -110,6 +121,8 @@ int main() {
         system("CLS");
 
         s = new Story(link);
+        if (s->is_art) { functions::set_console_appearance(5); }
+        else { functions::set_console_appearance(20); }
         g->next_story(*s);
     }
     delete s;
