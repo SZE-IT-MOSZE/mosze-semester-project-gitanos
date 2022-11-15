@@ -4,7 +4,7 @@
 #include <fstream>
 #include <iostream>
 #include <sstream>
-#include <windows.h>
+//#include <windows.h>
 
 using namespace std;
 
@@ -28,22 +28,22 @@ namespace functions {
 
     }
 
-    void set_console_appearance(short size) {
+    //void set_console_appearance(short size) {
 
-        CONSOLE_FONT_INFOEX cfi;
-        cfi.cbSize = sizeof cfi;
-        cfi.nFont = 0;
-        cfi.dwFontSize.X = 0;
-        cfi.dwFontSize.Y = size;
-        cfi.FontFamily = FF_DONTCARE;
-        cfi.FontWeight = FW_NORMAL;
-        wcscpy_s(cfi.FaceName, L"Consolas");
-        SetCurrentConsoleFontEx(GetStdHandle(STD_OUTPUT_HANDLE), FALSE, &cfi);
+    //    CONSOLE_FONT_INFOEX cfi;
+    //    cfi.cbSize = sizeof cfi;
+    //    cfi.nFont = 0;
+    //    cfi.dwFontSize.X = 0;
+    //    cfi.dwFontSize.Y = size;
+    //    cfi.FontFamily = FF_DONTCARE;
+    //    cfi.FontWeight = FW_NORMAL;
+    //    wcscpy_s(cfi.FaceName, L"Consolas");
+    //    SetCurrentConsoleFontEx(GetStdHandle(STD_OUTPUT_HANDLE), FALSE, &cfi);
 
-        HWND console = GetConsoleWindow();
-        MoveWindow(console, 100, 100, 1000, 600, TRUE);
+    //    HWND console = GetConsoleWindow();
+    //    MoveWindow(console, 100, 100, 1000, 600, TRUE);
 
-    }
+    //}
 }
 
 class Story {
@@ -110,7 +110,7 @@ int main() {
     string link = "_start";
 
     Story* s = new Story(link);
-    functions::set_console_appearance(20);
+    //functions::set_console_appearance(20);
 
     Game_Handler* g = new Game_Handler(*s);
     while (link != "") {
@@ -121,8 +121,8 @@ int main() {
         system("CLS");
 
         s = new Story(link);
-        if (s->is_art) { functions::set_console_appearance(5); }
-        else { functions::set_console_appearance(20); }
+        //if (s->is_art) { functions::set_console_appearance(5); }
+        //else { functions::set_console_appearance(20); }
         g->next_story(*s);
     }
     delete s;

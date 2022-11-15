@@ -1,0 +1,3 @@
+P:/mosze-semester-project-gitanos/szoveges-kalandjatek-cli/out/build/x64-Debug/CMakeFiles/game.exe.dir
+P:/mosze-semester-project-gitanos/szoveges-kalandjatek-cli/out/build/x64-Debug/CMakeFiles/edit_cache.dir
+P:/mosze-semester-project-gitanos/szoveges-kalandjatek-cli/out/build/x64-Debug/CMakeFiles/rebuild_cache.dir
