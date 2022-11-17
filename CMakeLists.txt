@@ -1,15 +1,12 @@
 cmake_minimum_required(VERSION 3.14)
 
-set(This game)
+set(This mosze_project)
 
 project(${This})
 
 set(CMAKE_CXX_STANDARD 11)
 
-set (Headers
-	game/functions.h
-)
+enable_testing()
 
-set (Sources
-	game/game.cpp
-)
+add_subdirectory(game)
+add_subdirectory(gtest)

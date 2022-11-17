@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="P:\mosze-semester-project-gitanos\build\CMakeFiles\70ad82213eb1d4deb8919c91ef57c1fb\RUN_TESTS_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{1FB26B2F-A6B1-33F5-B492-F2BC6B9F47CB}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

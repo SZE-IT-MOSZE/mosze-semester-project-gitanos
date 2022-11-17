@@ -1,0 +1,18 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-3.24/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in
+C:/Program Files/CMake/share/cmake-3.24/Modules/CMakePackageConfigHelpers.cmake
+C:/Program Files/CMake/share/cmake-3.24/Modules/CheckCSourceCompiles.cmake
+C:/Program Files/CMake/share/cmake-3.24/Modules/CheckIncludeFile.cmake
+C:/Program Files/CMake/share/cmake-3.24/Modules/CheckLibraryExists.cmake
+C:/Program Files/CMake/share/cmake-3.24/Modules/FindPackageHandleStandardArgs.cmake
+C:/Program Files/CMake/share/cmake-3.24/Modules/FindPackageMessage.cmake
+C:/Program Files/CMake/share/cmake-3.24/Modules/FindPython.cmake
+C:/Program Files/CMake/share/cmake-3.24/Modules/FindPython/Support.cmake
+C:/Program Files/CMake/share/cmake-3.24/Modules/FindThreads.cmake
+C:/Program Files/CMake/share/cmake-3.24/Modules/Internal/CheckSourceCompiles.cmake
+C:/Program Files/CMake/share/cmake-3.24/Modules/WriteBasicConfigVersionFile.cmake
+P:/mosze-semester-project-gitanos/build/_deps/googletest-src/googletest/CMakeLists.txt
+P:/mosze-semester-project-gitanos/build/_deps/googletest-src/googletest/cmake/Config.cmake.in
+P:/mosze-semester-project-gitanos/build/_deps/googletest-src/googletest/cmake/gtest.pc.in
+P:/mosze-semester-project-gitanos/build/_deps/googletest-src/googletest/cmake/gtest_main.pc.in
+P:/mosze-semester-project-gitanos/build/_deps/googletest-src/googletest/cmake/internal_utils.cmake
