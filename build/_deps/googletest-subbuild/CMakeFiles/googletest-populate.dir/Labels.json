@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "P:/mosze-semester-project-gitanos/build/_deps/googletest-subbuild/CMakeFiles/googletest-populate"
+		},
+		{
+			"file" : "P:/mosze-semester-project-gitanos/build/_deps/googletest-subbuild/CMakeFiles/dc300a1571b95b453d55bbfea3943a89/googletest-populate.rule"
+		},
+		{
+			"file" : "P:/mosze-semester-project-gitanos/build/_deps/googletest-subbuild/CMakeFiles/a70feddbb062b9fec7ce52b2ef9b6c50/googletest-populate-complete.rule"
+		},
+		{
+			"file" : "P:/mosze-semester-project-gitanos/build/_deps/googletest-subbuild/CMakeFiles/0ee1e1fe423fb4ac2a4f8606c7c5bf37/googletest-populate-build.rule"
+		},
+		{
+			"file" : "P:/mosze-semester-project-gitanos/build/_deps/googletest-subbuild/CMakeFiles/0ee1e1fe423fb4ac2a4f8606c7c5bf37/googletest-populate-configure.rule"
+		},
+		{
+			"file" : "P:/mosze-semester-project-gitanos/build/_deps/googletest-subbuild/CMakeFiles/0ee1e1fe423fb4ac2a4f8606c7c5bf37/googletest-populate-download.rule"
+		},
+		{
+			"file" : "P:/mosze-semester-project-gitanos/build/_deps/googletest-subbuild/CMakeFiles/0ee1e1fe423fb4ac2a4f8606c7c5bf37/googletest-populate-install.rule"
+		},
+		{
+			"file" : "P:/mosze-semester-project-gitanos/build/_deps/googletest-subbuild/CMakeFiles/0ee1e1fe423fb4ac2a4f8606c7c5bf37/googletest-populate-mkdir.rule"
+		},
+		{
+			"file" : "P:/mosze-semester-project-gitanos/build/_deps/googletest-subbuild/CMakeFiles/0ee1e1fe423fb4ac2a4f8606c7c5bf37/googletest-populate-patch.rule"
+		},
+		{
+			"file" : "P:/mosze-semester-project-gitanos/build/_deps/googletest-subbuild/CMakeFiles/0ee1e1fe423fb4ac2a4f8606c7c5bf37/googletest-populate-test.rule"
+		},
+		{
+			"file" : "P:/mosze-semester-project-gitanos/build/_deps/googletest-subbuild/CMakeFiles/0ee1e1fe423fb4ac2a4f8606c7c5bf37/googletest-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"googletest-populate"
+		],
+		"name" : "googletest-populate"
+	}
+}
