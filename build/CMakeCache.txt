@@ -274,9 +274,6 @@ FETCHCONTENT_UPDATES_DISCONNECTED:BOOL=OFF
 //Enables UPDATE_DISCONNECTED behavior just for population of googletest
 FETCHCONTENT_UPDATES_DISCONNECTED_GOOGLETEST:BOOL=OFF
 
-//Git command line client
-GIT_EXECUTABLE:FILEPATH=C:/Program Files/Git/cmd/git.exe
-
 //Enable installation of googletest. (Projects embedding googletest
 // may want to turn this OFF.)
 INSTALL_GTEST:BOOL=ON
@@ -289,6 +286,15 @@ game_IS_TOP_LEVEL:STATIC=OFF
 
 //Value Computed by CMake
 game_SOURCE_DIR:STATIC=P:/mosze-semester-project-gitanos/game
+
+//Value Computed by CMake
+game_test_BINARY_DIR:STATIC=P:/mosze-semester-project-gitanos/build/gtest
+
+//Value Computed by CMake
+game_test_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+game_test_SOURCE_DIR:STATIC=P:/mosze-semester-project-gitanos/gtest
 
 //Value Computed by CMake
 gmock_BINARY_DIR:STATIC=P:/mosze-semester-project-gitanos/build/_deps/googletest-build/googlemock
@@ -331,7 +337,7 @@ gtest_disable_pthreads:BOOL=OFF
 
 //Use shared (DLL) run-time lib even when Google Test is built
 // as static lib.
-gtest_force_shared_crt:BOOL=OFF
+gtest_force_shared_crt:BOOL=ON
 
 //Build gtest with internal symbols hidden in shared libraries.
 gtest_hide_internal_symbols:BOOL=OFF
@@ -521,8 +527,6 @@ CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 FIND_PACKAGE_MESSAGE_DETAILS_Python:INTERNAL=[C:/Users/babos/AppData/Local/Programs/Python/Python38-32/python.exe][cfound components: Interpreter ][v3.8.5()]
 //Details about finding Threads
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
-//ADVANCED property for variable: GIT_EXECUTABLE
-GIT_EXECUTABLE-ADVANCED:INTERNAL=1
 //CMAKE_INSTALL_PREFIX during last run
 _GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=C:/Program Files (x86)/mosze_project
 //Path to a program.

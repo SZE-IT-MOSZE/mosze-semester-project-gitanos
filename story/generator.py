@@ -14,7 +14,7 @@ while 1:
         for btn in btns:
             print(btn["link"])
         print('\n')
-    with open(f"{filename}.game", "w", encoding="ANSI") as out:
+    with open(f"{filename}.game", "w", encoding="UTF-8") as out:
         out.write(body)
         for btn in btns: 
             text = btn["text"]

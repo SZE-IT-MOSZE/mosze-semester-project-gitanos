@@ -4,8 +4,7 @@ set(This game)
 
 project(${This})
 
-set(CMAKE_CXX_STANDARD 11)
-
+set(CMAKE_CXX_STANDARD 14)
 set (Headers
 	functions.h
 	classes.h

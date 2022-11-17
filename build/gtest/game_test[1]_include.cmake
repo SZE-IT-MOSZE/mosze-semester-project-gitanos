@@ -1,0 +1,5 @@
+if(EXISTS "P:/mosze-semester-project-gitanos/build/gtest/game_test[1]_tests.cmake")
+  include("P:/mosze-semester-project-gitanos/build/gtest/game_test[1]_tests.cmake")
+else()
+  add_test(game_test_NOT_BUILT game_test_NOT_BUILT)
+endif()

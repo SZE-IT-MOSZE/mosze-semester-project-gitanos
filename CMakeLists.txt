@@ -4,9 +4,7 @@ set(This mosze_project)
 
 project(${This})
 
-set(CMAKE_CXX_STANDARD 11)
-
-enable_testing()
+set(CMAKE_CXX_STANDARD 14)
 
 file(GLOB MY_PUBLIC_HEADERS
   "story/*.game"

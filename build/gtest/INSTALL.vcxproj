@@ -191,7 +191,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="P:\mosze-semester-project-gitanos\build\ALL_BUILD.vcxproj">
+    <ProjectReference Include="P:\mosze-semester-project-gitanos\build\gtest\ALL_BUILD.vcxproj">
       <Project>{9939807D-1413-320D-AB3A-34AE6A941ADB}</Project>
       <Name>ALL_BUILD</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>

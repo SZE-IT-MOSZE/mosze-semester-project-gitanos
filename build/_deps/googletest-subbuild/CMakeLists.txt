@@ -10,18 +10,10 @@ cmake_minimum_required(VERSION 3.24.3)
 project(googletest-populate NONE)
 
 
-# Pass through things we've already detected in the main project to avoid
-# paying the cost of redetecting them again in ExternalProject_Add()
-set(GIT_EXECUTABLE [==[C:/Program Files/Git/cmd/git.exe]==])
-set(GIT_VERSION_STRING [==[2.29.2.windows.2]==])
-set_property(GLOBAL PROPERTY _CMAKE_FindGit_GIT_EXECUTABLE_VERSION
-  [==[C:/Program Files/Git/cmd/git.exe;2.29.2.windows.2]==]
-)
-
 
 include(ExternalProject)
 ExternalProject_Add(googletest-populate
-                     "UPDATE_DISCONNECTED" "False" "GIT_REPOSITORY" "https://github.com/google/googletest.git" "GIT_TAG" "release-1.11.0"
+                     "UPDATE_DISCONNECTED" "False" "DOWNLOAD_EXTRACT_TIMESTAMP" "TRUE" "URL" "https://github.com/google/googletest/archive/5376968f6948923e2411081fd9372e71a59d8e77.zip"
                     SOURCE_DIR          "P:/mosze-semester-project-gitanos/build/_deps/googletest-src"
                     BINARY_DIR          "P:/mosze-semester-project-gitanos/build/_deps/googletest-build"
                     CONFIGURE_COMMAND   ""
