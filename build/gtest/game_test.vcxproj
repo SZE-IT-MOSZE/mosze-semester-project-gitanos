@@ -317,8 +317,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="P:\mosze-semester-project-gitanos\gtest\pch.cpp" />
-    <ClInclude Include="P:\mosze-semester-project-gitanos\gtest\pch.h" />
     <ClCompile Include="P:\mosze-semester-project-gitanos\gtest\unit_tests.cpp" />
   </ItemGroup>
   <ItemGroup>

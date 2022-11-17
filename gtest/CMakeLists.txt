@@ -9,7 +9,7 @@ FetchContent_MakeAvailable(googletest)
 add_library(GTest::GTest INTERFACE IMPORTED)
 target_link_libraries(GTest::GTest INTERFACE gtest_main)
 
-add_executable(game_test pch.cpp pch.h unit_tests.cpp)
+add_executable(game_test unit_tests.cpp)
 
 target_link_libraries(game_test
  PRIVATE

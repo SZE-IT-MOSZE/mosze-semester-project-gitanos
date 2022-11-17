@@ -20,22 +20,22 @@
 			"id" : "game::@0c53ff3c4131f9152fd3"
 		},
 		{
+			"id" : "gmock_main::@0f7bb11d64f3678238c7"
+		},
+		{
 			"id" : "game_test::@0af4add9fe94340e763e"
 		},
 		{
 			"id" : "gmock::@0f7bb11d64f3678238c7"
 		},
 		{
-			"id" : "gmock_main::@0f7bb11d64f3678238c7"
-		},
-		{
-			"id" : "gtest_main::@1ea2dfc0605fe3ab2a3f"
-		},
-		{
 			"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df"
 		},
 		{
 			"id" : "gtest::@1ea2dfc0605fe3ab2a3f"
+		},
+		{
+			"id" : "gtest_main::@1ea2dfc0605fe3ab2a3f"
 		}
 	],
 	"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",

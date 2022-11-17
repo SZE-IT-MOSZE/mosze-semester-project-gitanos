@@ -1,3 +1,5 @@
+# pragma once
+
 #include "pch.h"
 #include "../game/classes.h"
 
@@ -19,7 +21,7 @@ TEST(SplitTest, SplitStrs) {
 }
 
 TEST(StoryClass, check_if_art) {
-	Story story("_gtest");
+	Story story("_start");
 	EXPECT_FALSE(story.check_if_art("test"));
 	EXPECT_TRUE(story.check_if_art("test.art"));
 }

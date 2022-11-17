@@ -19,7 +19,7 @@ int main() {
     while (link != "") {
 
         bool valid = false;
-        while (not valid) {
+        while (valid == false) {
             cout << "Please choose an option (integer): ";
             cin >> input_to_validate;
             valid = functions::input_validation(input_to_validate, &option);
