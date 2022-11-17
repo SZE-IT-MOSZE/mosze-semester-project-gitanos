@@ -24,6 +24,17 @@ TEST(StoryClass, check_if_art) {
 	EXPECT_TRUE(story.check_if_art("test.art"));
 }
 
+TEST(StoryClass, link_to_raw_text) {
+	Story story("_gtest");
+	string expected_text = "story for\n"
+		"gtext\n"
+		"\n"
+		"|NOT ART>00_some_story\n"
+		"|Now this is art!>02_some.art";
+
+	EXPECT_EQ(story.link_to_raw_text("_gtest"), expected_text);
+}
+
 int main(int argc, char** argv) {
 	::testing::InitGoogleTest(&argc, argv);
 	return RUN_ALL_TESTS();

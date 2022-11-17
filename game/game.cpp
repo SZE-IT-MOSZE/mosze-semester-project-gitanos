@@ -1,7 +1,7 @@
 #include "classes.h"
 
 int main() {
-    system("utf8");
+    system("chcp 1252");
     system("CLS");
     short option;
     string link = "_start";
