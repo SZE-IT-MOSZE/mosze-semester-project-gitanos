@@ -28,6 +28,18 @@ namespace functions {
 
     }
 
+    bool input_validation(string input_to_validate, short* res_num) {
+        bool res = false;
+        try {
+            *res_num = stoi(input_to_validate);
+            res = true;
+        }
+        catch (exception& err) {
+            // cerr << "Conversion failure: " << err.what() << endl; // Note: what() tells the exact error
+        }
+        return res;
+    }
+
     void set_console_appearance(short size) {
         // set the console font to Consolas and font size to [size]; set console size to 1000x600
 
