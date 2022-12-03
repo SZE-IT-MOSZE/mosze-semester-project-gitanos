@@ -3,6 +3,7 @@
 class Story {
 
 public:
+    std::string path;
     std::string raw_text;
     std::string link;
     std::string prev_link;
@@ -11,10 +12,11 @@ public:
     std::vector<std::string> btn_links;
     bool is_art = false;
 
-    Story(std::string btn_link, std::string pr_link) {
+    Story(std::string story_path, std::string btn_link, std::string pr_link) {
         // initialise values
-        prev_link = pr_link;
+        path = story_path;
         link = btn_link;
+        prev_link = pr_link;
         is_art = check_if_art(btn_link);
         raw_text = link_to_raw_text(btn_link);
         split_to_body_and_links(btn_link);
@@ -40,7 +42,7 @@ public:
         // transform the [btn_link].game file to a string
         std::ifstream in_file;
 
-        in_file.open("../story/" + btn_link + ".game"); // open the input file
+        in_file.open(path + btn_link + ".game"); // open the input file
 
         std::stringstream str_stream;
         str_stream << in_file.rdbuf(); // read the file
@@ -84,6 +86,7 @@ public:
 
         std::string input_to_validate;
         short option;
+        std::string path = story->path;
         std::string link = story->link;
         std::string prev_link = story->link;
 
@@ -109,12 +112,13 @@ public:
                 }
             }
             else { 
-                std::system("pause");
+                std::system("PAUSE");
                 link = story->prev_link;
             }
             prev_link = story->link;
+            path = story->path;
             delete story;
-            story = new Story(link, prev_link);
+            story = new Story(path, link, prev_link);
             system("CLS");
             if (story->is_art) { functions::set_console_appearance(5); }
             else { functions::set_console_appearance(20); }
