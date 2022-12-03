@@ -3,11 +3,7 @@
 #include "pch.h"
 #include "../game/classes.h"
 
-TEST(TestFunction, PassingTest) {
-  EXPECT_EQ(1, 1);
-  EXPECT_TRUE(true);
-  EXPECT_FALSE(false);
-}
+using namespace std;
 
 TEST(SplitTest, SplitStrs) {
 	vector<string> onevtr = { "title.game" };
