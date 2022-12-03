@@ -5,13 +5,15 @@ class Story {
 public:
     std::string raw_text;
     std::string link;
+    std::string prev_link;
     std::string body;
     std::vector<std::string> btn_texts;
     std::vector<std::string> btn_links;
     bool is_art = false;
 
-    Story(std::string btn_link) {
+    Story(std::string btn_link, std::string pr_link) {
         // initialise values
+        prev_link = pr_link;
         link = btn_link;
         is_art = check_if_art(btn_link);
         raw_text = link_to_raw_text(btn_link);
@@ -65,49 +67,55 @@ public:
 };
 
 class Game_Handler {
-    // on second thought, this can be replaced with a basic function
-
 public:
     Game_Handler(Story* start_story) { print_story(start_story); }
+
+protected:
     void print_story(Story* next_story) {
 
         std::cout << next_story->body << std::endl;
         for (short i = 0; i < next_story->btn_texts.size(); i++) {
             std::cout << i << ": " << next_story->btn_texts[i] << std::endl;
         }
-
     }
+
+public:
     void run(Story* story) {
 
         std::string input_to_validate;
         short option;
-
         std::string link = story->link;
+        std::string prev_link = story->link;
+
 
         functions::set_console_appearance(20);
 
         while (link != "") {
+            if (not story->is_art) {
+                bool valid = false;
+                while (valid == false) {
+                    std::cout << "Please choose an option (integer): ";
+                    std::cin >> input_to_validate;
+                    valid = functions::input_validation(input_to_validate, &option);
 
-            bool valid = false;
-            while (valid == false) {
-                std::cout << "Please choose an option (integer): ";
-                std::cin >> input_to_validate;
-                valid = functions::input_validation(input_to_validate, &option);
-
-                try {
-                    story->btn_links.at(option); // test if out of range
-                    link = story->btn_links[option];
-                }
-                catch (const std::out_of_range& e) {
-                    std::cout << "Option not valid. ";
-                    valid = false;
+                    try {
+                        story->btn_links.at(option); // test if out of range
+                        link = story->btn_links[option];
+                    }
+                    catch (const std::out_of_range& e) {
+                        std::cout << "Option not valid. ";
+                        valid = false;
+                    }
                 }
             }
+            else { 
+                std::system("pause");
+                link = story->prev_link;
+            }
+            prev_link = story->link;
             delete story;
-
+            story = new Story(link, prev_link);
             system("CLS");
-
-            story = new Story(link);
             if (story->is_art) { functions::set_console_appearance(5); }
             else { functions::set_console_appearance(20); }
             this->print_story(story);
