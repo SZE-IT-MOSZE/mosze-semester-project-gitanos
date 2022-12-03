@@ -1,4 +1,0 @@
-# CMake generation dependency list for this directory.
-C:/Program Files/CMake/share/cmake-3.24/Modules/CMakeDependentOption.cmake
-C:/Program Files/CMake/share/cmake-3.24/Modules/GNUInstallDirs.cmake
-P:/mosze-semester-project-gitanos/build/_deps/googletest-src/CMakeLists.txt
