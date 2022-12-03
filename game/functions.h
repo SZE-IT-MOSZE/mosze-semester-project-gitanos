@@ -6,18 +6,16 @@
 #include <sstream>
 #include <windows.h>
 
-using namespace std;
-
 namespace functions {
 
-    vector<string> split(string s, string delimiter) {
+    std::vector<std::string> split(std::string s, std::string delimiter) {
         // split the s string based on the delimiter
 
         size_t pos_start = 0, pos_end, delim_len = delimiter.length();
-        string token;
-        vector<string> res;
+        std::string token;
+        std::vector<std::string> res;
 
-        while ((pos_end = s.find(delimiter, pos_start)) != string::npos) {
+        while ((pos_end = s.find(delimiter, pos_start)) != std::string::npos) {
             token = s.substr(pos_start, pos_end - pos_start);
             pos_start = pos_end + delim_len;
             res.push_back(token);
@@ -28,13 +26,13 @@ namespace functions {
 
     }
 
-    bool input_validation(string input_to_validate, short* res_num) {
+    bool input_validation(std::string input_to_validate, short* res_num) {
         bool res = false;
         try {
             *res_num = stoi(input_to_validate);
             res = true;
         }
-        catch (exception& err) {
+        catch (std::exception& err) {
             // cerr << "Conversion failure: " << err.what() << endl; // Note: what() tells the exact error
         }
         return res;
