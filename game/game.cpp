@@ -9,7 +9,7 @@ using namespace std;
 
 int wmain() {
     _setmode(_fileno(stdout), _O_U16TEXT);
-    wcout << L"K�rlek, sima Command Prompt-ban futtasd a j�t�kot a teljes �lm�ny�rt!" <<endl;
+    wcout << L"Kérlek, sima Command Prompt-ban futtasd a játékot a teljes élményért!" <<endl;
     std::system("PAUSE");
     wstring link = L"_start";
     wstring path = L"../story/";
