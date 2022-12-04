@@ -7,7 +7,7 @@ using namespace std;
 int main() {
     string link = "_start";
 
-    Story* story = new Story(link, link);
+    Story* story = new Story("../story/", link, link);
 
     SetConsoleOutputCP(65001);
     std::system("CLS");
