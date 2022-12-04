@@ -86,10 +86,6 @@ public:
         std::wstring link = story->link;
         std::wstring prev_link = story->link;
 
-
-
-        functions::set_console_appearance(20);
-
         while ((story->btn_links.size()) || (story->is_art)) {
             if (! (story->is_art)) {
                 bool valid = false;

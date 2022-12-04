@@ -1,4 +1,4 @@
-#include "classes.h"
+﻿#include "classes.h"
 #include <cstdio>
 
 #include <iostream>
@@ -15,7 +15,7 @@ int wmain() {
     wstring path = L"../story/";
     Story* story = new Story(path, link, link);
 
-
+    functions::set_console_appearance(20);
     SetConsoleOutputCP(65001);
     std::system("CLS");
 
