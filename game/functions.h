@@ -5,17 +5,28 @@
 #include <iostream>
 #include <sstream>
 #include <windows.h>
+#include <codecvt>
 
 namespace functions {
 
-    std::vector<std::string> split(std::string s, std::string delimiter) {
-        // split the s string based on the delimiter
+    std::wstring readFile(std::wstring filename)
+    {
+        std::wifstream wif(filename);
+        wif.imbue(std::locale(std::locale::empty(), new std::codecvt_utf8<wchar_t>));
+        std::wstringstream wss;
+        wss << wif.rdbuf();
+        std::wstring res = wss.str();
+        return res;
+    }
+
+    std::vector<std::wstring> split(std::wstring s, std::wstring delimiter) {
+        // split the s wstring based on the delimiter
 
         size_t pos_start = 0, pos_end, delim_len = delimiter.length();
-        std::string token;
-        std::vector<std::string> res;
+        std::wstring token;
+        std::vector<std::wstring> res;
 
-        while ((pos_end = s.find(delimiter, pos_start)) != std::string::npos) {
+        while ((pos_end = s.find(delimiter, pos_start)) != std::wstring::npos) {
             token = s.substr(pos_start, pos_end - pos_start);
             pos_start = pos_end + delim_len;
             res.push_back(token);
@@ -26,7 +37,7 @@ namespace functions {
 
     }
 
-    bool input_validation(std::string input_to_validate, short* res_num) {
+    bool input_validation(std::wstring input_to_validate, short* res_num) {
         bool res = false;
         try {
             *res_num = stoi(input_to_validate);
