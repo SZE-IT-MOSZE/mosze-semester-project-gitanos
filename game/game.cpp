@@ -9,11 +9,12 @@ using namespace std;
 
 int wmain() {
     _setmode(_fileno(stdout), _O_U16TEXT);
-    wcout << L"Kérlek, sima Command Prompt-ban futtasd a játékot a teljes élményért!" <<endl;
+    wcout << L"Kï¿½rlek, sima Command Prompt-ban futtasd a jï¿½tï¿½kot a teljes ï¿½lmï¿½nyï¿½rt!" <<endl;
     std::system("PAUSE");
     wstring link = L"_start";
     wstring path = L"../story/";
     Story* story = new Story(path, link, link);
+
 
     SetConsoleOutputCP(65001);
     std::system("CLS");

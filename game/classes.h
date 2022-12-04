@@ -17,7 +17,9 @@ public:
         // initialise values
         path = story_path;
         prev_link = pr_link;
+
         link = btn_link;
+        prev_link = pr_link;
         is_art = check_if_art(btn_link);
         raw_text = link_to_raw_text(btn_link);
         split_to_body_and_links(btn_link);
@@ -85,6 +87,7 @@ public:
         std::wstring prev_link = story->link;
 
 
+
         functions::set_console_appearance(20);
 
         while ((story->btn_links.size()) || (story->is_art)) {
@@ -106,10 +109,11 @@ public:
                 }
             }
             else { 
-                std::system("pause");
+                std::system("PAUSE");
                 link = story->prev_link;
             }
             prev_link = story->link;
+            path = story->path;
             delete story;
             story = new Story(path, link, prev_link);
             system("CLS");
