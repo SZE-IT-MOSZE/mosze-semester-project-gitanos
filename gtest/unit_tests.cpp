@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include "pch.h"
 #include "../game/classes.h"
@@ -14,6 +14,20 @@ TEST(SplitTest, SplitStrs) {
 
 	vector<wstring> vtr2 = { L"title", L"game", L"art" };
 	EXPECT_EQ(functions::split(L"title.game.art", L"."), vtr2);
+}
+
+TEST(StoryClass_constructor, constructor) {
+	Story story(L"../story/", L"0_egyetem", L"_start");
+	EXPECT_EQ(story.path, L"../story/");
+	EXPECT_EQ(story.link, L"0_egyetem");
+	EXPECT_EQ(story.prev_link, L"_start");
+
+	wstring body = L"Jó választás! A játékunk csak erre az ágra terjed ki. Meg itt lehet bulizni. Apropos, megnézed a campust, és meglátod középen a kocsmát. \n";
+	EXPECT_EQ(story.body, body);
+	vector<wstring> texts = { L"Odamegyek, és elmesélem mindenkinek, hogy ide fogok járni!", L"Tovább nézelődök, olyan nagy ez a hely!" };
+	EXPECT_EQ(story.btn_texts, texts);
+	vector<wstring> links = { L"01_lapos", L"01_egyetem.art" };
+	EXPECT_EQ(story.btn_links, links);
 }
 
 TEST(StoryClass_check_if_art, check_if_art) {
