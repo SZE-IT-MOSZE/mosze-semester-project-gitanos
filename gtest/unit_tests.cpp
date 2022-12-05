@@ -5,7 +5,7 @@
 
 using namespace std;
 
-TEST(SplitTest, SplitStrs) {
+TEST(functions_split, split) {
 	vector<wstring> onevtr = { L"title.game" };
 	EXPECT_EQ(functions::split(L"title.game", L"#"), onevtr);
 
@@ -14,6 +14,24 @@ TEST(SplitTest, SplitStrs) {
 
 	vector<wstring> vtr2 = { L"title", L"game", L"art" };
 	EXPECT_EQ(functions::split(L"title.game.art", L"."), vtr2);
+}
+
+TEST(functions_input_validation, input_validation) {
+	short res_num = 0;
+	bool res = functions::input_validation(L"2", &res_num);
+	EXPECT_TRUE(res);
+	EXPECT_EQ(res_num, 2);
+
+	res_num = 0;
+	res = functions::input_validation(L"abc", &res_num);
+	EXPECT_FALSE(res);
+	EXPECT_EQ(res_num, 0);
+
+	res_num = 0;
+	res = functions::input_validation(L"010asd1", &res_num);
+	// stoi starts from the beginning, if it is a number, it can convert
+	EXPECT_TRUE(res);
+	EXPECT_EQ(res_num, 10);
 }
 
 TEST(StoryClass_constructor, constructor) {
@@ -37,6 +55,7 @@ TEST(StoryClass_check_if_art, check_if_art) {
 }
 
 TEST(StoryClass_link_to_raw_text, link_to_raw_text) {
+	// same as functions::readFile
 	Story story(L"../story/", L"_gtest", L"_gtest");
 	wstring expected_text = L"story for\n"
 		L"gtext\n"
