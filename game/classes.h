@@ -43,7 +43,7 @@ public:
 
     std::wstring link_to_raw_text(std::wstring btn_link) {
         // transform the [btn_link].game file to a wstring
-        return functions::readFile(path+btn_link+L".game");
+        return functions::read_file(path+btn_link+L".game");
     }
 
     void split_to_body_and_links(std::wstring btn_link) {
@@ -79,46 +79,52 @@ private:
 
 public:
     void run(Story* story) {
+        if (story->raw_text != L"") {
+            std::wstring input_to_validate;
+            short option;
+            std::wstring path = story->path;
+            std::wstring link = story->link;
+            std::wstring prev_link = story->link;
 
-        std::wstring input_to_validate;
-        short option;
-        std::wstring path = story->path;
-        std::wstring link = story->link;
-        std::wstring prev_link = story->link;
+            while ((story->btn_links.size()) || (story->is_art)) {
+                if (!(story->is_art)) {
+                    bool valid = false;
+                    while (valid == false) {
+                        std::wcout << L"Válassz opciót (szám): ";
+                        std::wcin >> input_to_validate;
+                        valid = functions::input_validation(input_to_validate, &option);
 
-        while ((story->btn_links.size()) || (story->is_art)) {
-            if (! (story->is_art)) {
-                bool valid = false;
-                while (valid == false) {
-                    std::wcout << L"Válassz opciót (szám): ";
-                    std::wcin >> input_to_validate;
-                    valid = functions::input_validation(input_to_validate, &option);
-
-                    try {
-                        story->btn_links.at(option); // test if out of range
-                        link = story->btn_links[option];
-                    }
-                    catch (const std::out_of_range& e) {
-                        std::wcout << L"Az opció nem létezik! ";
-                        valid = false;
+                        try {
+                            story->btn_links.at(option); // test if out of range
+                            link = story->btn_links[option];
+                        }
+                        catch (const std::out_of_range& e) {
+                            std::wcout << L"Az opció nem létezik! ";
+                            valid = false;
+                        }
                     }
                 }
+                else {
+                    std::system("PAUSE");
+                    link = story->prev_link;
+                }
+                prev_link = story->link;
+                path = story->path;
+                delete story;
+                story = new Story(path, link, prev_link);
+                system("CLS");
+                if (story->is_art) { functions::set_console_appearance(5); }
+                else { functions::set_console_appearance(20); }
+                this->print_story(story);
             }
-            else { 
-                std::system("PAUSE");
-                link = story->prev_link;
-            }
-            prev_link = story->link;
-            path = story->path;
-            delete story;
-            story = new Story(path, link, prev_link);
-            system("CLS");
-            if (story->is_art) { functions::set_console_appearance(5); }
-            else { functions::set_console_appearance(20); }
-            this->print_story(story);
+            std::wcout << L"Köszönjük, hogy velünk játszottál!\n\n"
+                "Készítette: Babos Kristóf, Fazekas Richárd, "
+                "Göntér Mátyás, Lendvai Áron\n\n\n\n\n\n\n\n\n";
         }
-        std::wcout << L"Köszönjük, hogy velünk játszottál!\n\n"
-            "Készítette: Babos Kristóf, Fazekas Richárd, Göntér Mátyás, Lendvai Áron\n\n\n\n\n\n\n\n\n";
+        else { 
+            std::wcout << L"Nem sikerült beolvasni a kezdőtörténetet.\n"
+                L"Ellenőrizd az elérési útvonalat!\n\n\n"
+                L"(game.cpp-hez képest " + story->path + L")\n\n"; }
     }
 
 };

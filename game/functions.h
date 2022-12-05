@@ -9,8 +9,7 @@
 
 namespace functions {
 
-    std::wstring readFile(std::wstring filename)
-    {
+    std::wstring read_file(std::wstring filename) {
         std::wifstream wif(filename);
         wif.imbue(std::locale(std::locale::empty(), new std::codecvt_utf8<wchar_t>));
         std::wstringstream wss;
