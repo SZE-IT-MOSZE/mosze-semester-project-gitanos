@@ -88,7 +88,7 @@ public:
             {L"02_robot", false},
             {L"04_midone", false},
             {L"04_fizikadone", false},
-            {L"05_mosze", false}
+            {L"05_mosze_2ko_kesz", false}
         };
 
         if (story->raw_text != L"") {
@@ -103,6 +103,10 @@ public:
             while ((story->btn_links.size()) || (story->is_art)) {
                 if (subjects.find(link) != subjects.end()) {
                     subjects.find(link)->second = true;
+                }
+                if (story->link == L"05_mosze_skip") { // easter egg
+                    throw std::exception();
+                    exit(EXIT_FAILURE);
                 }
                 if (!(story->is_art)) {
                     bool valid = false;

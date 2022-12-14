@@ -1,1 +1,9 @@
-Kár érte, majd jövőre megpróbálod. Viszont akkor ez a projekt sem léte
+Kár érte, majd jövőre megpróbálod. Viszont akkor ez a projekt sem létezik.
+
+5 bytes in 1 blocks are definitely lost in loss record 1 of 1
+   at 0x4C29BE3: malloc (vg_replace_malloc.c:299)
+   by 0x40053E: main (main.c:4)
+
+
+
+

@@ -76,7 +76,7 @@ namespace functions {
                 if (x.first == L"02_robot") { std::wcout << L"Robot programozás" << std::endl; }
                 if (x.first == L"04_midone") { std::wcout << L"Mesterséges intelligencia" << std::endl; }
                 if (x.first == L"04_fizikadone") { std::wcout << L"Fizika informatikusoknak" << std::endl; }
-                if (x.first == L"05_mosze") { std::wcout << L"Modern szoftverfejlesztési eszközök" << std::endl; }
+                if (x.first == L"05_mosze_2ko_kesz") { std::wcout << L"Modern szoftverfejlesztési eszközök" << std::endl; }
             }
 
         }
