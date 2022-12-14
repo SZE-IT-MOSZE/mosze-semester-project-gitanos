@@ -79,6 +79,18 @@ private:
 
 public:
     void run(Story* story) {
+
+        std::map<std::wstring, bool> subjects = {
+            {L"01_szgmvizsgajo", false},
+            {L"02_kommism_vita", false},
+            {L"02_halo", false},
+            {L"02_kollab", false},
+            {L"02_robot", false},
+            {L"04_midone", false},
+            {L"04_fizikadone", false},
+            {L"05_mosze_2ko_kesz", false}
+        };
+
         if (story->raw_text != L"") {
             std::wstring input_to_validate;
             short option;
@@ -86,7 +98,16 @@ public:
             std::wstring link = story->link;
             std::wstring prev_link = story->link;
 
+
+
             while ((story->btn_links.size()) || (story->is_art)) {
+                if (subjects.find(link) != subjects.end()) {
+                    subjects.find(link)->second = true;
+                }
+                if (story->link == L"05_mosze_skip") { // easter egg
+                    throw std::exception();
+                    exit(EXIT_FAILURE);
+                }
                 if (!(story->is_art)) {
                     bool valid = false;
                     while (valid == false) {
@@ -118,8 +139,12 @@ public:
                 this->print_story(story);
             }
             std::wcout << L"Köszönjük, hogy velünk játszottál!\n\n"
-                "Készítette: Babos Kristóf, Fazekas Richárd, "
-                "Göntér Mátyás, Lendvai Áron\n\n\n\n\n\n\n\n\n";
+
+            L"A következő tantárgyakat sikerült teljesítened: \n";
+            functions::print_subjects(subjects); 
+
+            std::wcout << L"\n\nKészítette: Babos Kristóf, Fazekas Richárd, "
+                          L"Göntér Mátyás, Lendvai Áron\n\n\n\n\n";
         }
         else { 
             std::wcout << L"Nem sikerült beolvasni a kezdőtörténetet.\n"

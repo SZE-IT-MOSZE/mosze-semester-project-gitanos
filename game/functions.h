@@ -1,5 +1,6 @@
-#include <iostream>
+﻿#include <iostream>
 #include <vector>
+#include <map>
 #include <string>
 #include <fstream>
 #include <iostream>
@@ -62,7 +63,22 @@ namespace functions {
         SetCurrentConsoleFontEx(GetStdHandle(STD_OUTPUT_HANDLE), FALSE, &cfi);
 
         HWND console = GetConsoleWindow();
-        MoveWindow(console, 100, 100, 1000, 600, TRUE);
+        MoveWindow(console, 50, 25, 1300, 1000, TRUE);
+    }
 
+    void print_subjects(std::map<std::wstring, bool> subjects) {
+        for (auto const& x : subjects) {
+            if (x.second) {
+                if (x.first == L"01_szgmvizsgajo") { std::wcout << L"Számítógépek működése" << std::endl; }
+                if (x.first == L"02_kommism_vita") { std::wcout << L"Kommunikációs ismeretek" << std::endl; }
+                if (x.first == L"02_halo") { std::wcout << L"Számítógépes hálózatok" << std::endl; }
+                if (x.first == L"02_kollab") { std::wcout << L"Kollaboráció a jövő internetén" << std::endl; }
+                if (x.first == L"02_robot") { std::wcout << L"Robot programozás" << std::endl; }
+                if (x.first == L"04_midone") { std::wcout << L"Mesterséges intelligencia" << std::endl; }
+                if (x.first == L"04_fizikadone") { std::wcout << L"Fizika informatikusoknak" << std::endl; }
+                if (x.first == L"05_mosze_2ko_kesz") { std::wcout << L"Modern szoftverfejlesztési eszközök" << std::endl; }
+            }
+
+        }
     }
 }
