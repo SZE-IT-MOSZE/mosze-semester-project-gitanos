@@ -62,7 +62,7 @@ namespace functions {
         SetCurrentConsoleFontEx(GetStdHandle(STD_OUTPUT_HANDLE), FALSE, &cfi);
 
         HWND console = GetConsoleWindow();
-        MoveWindow(console, 100, 100, 1000, 600, TRUE);
+        MoveWindow(console, 50, 25, 1300, 1000, TRUE);
 
     }
 }
