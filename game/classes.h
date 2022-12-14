@@ -79,6 +79,16 @@ private:
 
 public:
     void run(Story* story) {
+
+        std::map<std::wstring, bool> subjects = {
+            {L"01_szgmvizsgajo", false},
+            {L"02_kommism_vita", false},
+            {L"02_halo", false},
+            {L"02_kollab", false},
+            {L"02_robot", false},
+            {L"05_mosze", false}
+        };
+
         if (story->raw_text != L"") {
             std::wstring input_to_validate;
             short option;
@@ -86,7 +96,12 @@ public:
             std::wstring link = story->link;
             std::wstring prev_link = story->link;
 
+
+
             while ((story->btn_links.size()) || (story->is_art)) {
+                if (subjects.find(link) != subjects.end()) {
+                    subjects.find(link)->second = true;
+                }
                 if (!(story->is_art)) {
                     bool valid = false;
                     while (valid == false) {
@@ -118,8 +133,21 @@ public:
                 this->print_story(story);
             }
             std::wcout << L"Köszönjük, hogy velünk játszottál!\n\n"
-                "Készítette: Babos Kristóf, Fazekas Richárd, "
-                "Göntér Mátyás, Lendvai Áron\n\n\n\n\n\n\n\n\n";
+                L"A következő tantárgyakat sikerült teljesítened: \n";
+            for (auto const& x : subjects) {
+                if (x.second) {
+                    if (x.first == L"01_szgmvizsgajo") { std::wcout << L"Számítógépek működése" << std::endl; }
+                    if (x.first == L"02_kommism_vita") { std::wcout << L"Kommunikációs ismeretek" << std::endl; }
+                    if (x.first == L"02_halo") { std::wcout << L"Számítógépes hálózatok" << std::endl; }
+                    if (x.first == L"02_kollab") { std::wcout << L"Kollaboráció a jövő internetén" << std::endl; }
+                    if (x.first == L"02_robot") { std::wcout << L"Robot programozás" << std::endl; }
+                    if (x.first == L"05_mosze") { std::wcout << L"Modern szoftverfejlesztési eszközök" << std::endl; }
+                }
+                
+            }
+
+            std::wcout << L"\n\nKészítette: Babos Kristóf, Fazekas Richárd, "
+                L"Göntér Mátyás, Lendvai Áron\n\n\n\n\n";
         }
         else { 
             std::wcout << L"Nem sikerült beolvasni a kezdőtörténetet.\n"

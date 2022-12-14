@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <map>
 #include <string>
 #include <fstream>
 #include <iostream>
@@ -63,6 +64,5 @@ namespace functions {
 
         HWND console = GetConsoleWindow();
         MoveWindow(console, 50, 25, 1300, 1000, TRUE);
-
     }
 }
