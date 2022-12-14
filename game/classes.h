@@ -86,6 +86,8 @@ public:
             {L"02_halo", false},
             {L"02_kollab", false},
             {L"02_robot", false},
+            {L"04_midone", false},
+            {L"04_fizikadone", false},
             {L"05_mosze", false}
         };
 
