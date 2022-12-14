@@ -133,21 +133,12 @@ public:
                 this->print_story(story);
             }
             std::wcout << L"Köszönjük, hogy velünk játszottál!\n\n"
-                L"A következő tantárgyakat sikerült teljesítened: \n";
-            for (auto const& x : subjects) {
-                if (x.second) {
-                    if (x.first == L"01_szgmvizsgajo") { std::wcout << L"Számítógépek működése" << std::endl; }
-                    if (x.first == L"02_kommism_vita") { std::wcout << L"Kommunikációs ismeretek" << std::endl; }
-                    if (x.first == L"02_halo") { std::wcout << L"Számítógépes hálózatok" << std::endl; }
-                    if (x.first == L"02_kollab") { std::wcout << L"Kollaboráció a jövő internetén" << std::endl; }
-                    if (x.first == L"02_robot") { std::wcout << L"Robot programozás" << std::endl; }
-                    if (x.first == L"05_mosze") { std::wcout << L"Modern szoftverfejlesztési eszközök" << std::endl; }
-                }
-                
-            }
+
+            L"A következő tantárgyakat sikerült teljesítened: \n";
+            functions::print_subjects(subjects); 
 
             std::wcout << L"\n\nKészítette: Babos Kristóf, Fazekas Richárd, "
-                L"Göntér Mátyás, Lendvai Áron\n\n\n\n\n";
+                          L"Göntér Mátyás, Lendvai Áron\n\n\n\n\n";
         }
         else { 
             std::wcout << L"Nem sikerült beolvasni a kezdőtörténetet.\n"

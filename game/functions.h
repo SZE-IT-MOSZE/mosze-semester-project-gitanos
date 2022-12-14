@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 #include <vector>
 #include <map>
 #include <string>
@@ -64,5 +64,19 @@ namespace functions {
 
         HWND console = GetConsoleWindow();
         MoveWindow(console, 50, 25, 1300, 1000, TRUE);
+    }
+
+    void print_subjects(std::map<std::wstring, bool> subjects) {
+        for (auto const& x : subjects) {
+            if (x.second) {
+                if (x.first == L"01_szgmvizsgajo") { std::wcout << L"Számítógépek működése" << std::endl; }
+                if (x.first == L"02_kommism_vita") { std::wcout << L"Kommunikációs ismeretek" << std::endl; }
+                if (x.first == L"02_halo") { std::wcout << L"Számítógépes hálózatok" << std::endl; }
+                if (x.first == L"02_kollab") { std::wcout << L"Kollaboráció a jövő internetén" << std::endl; }
+                if (x.first == L"02_robot") { std::wcout << L"Robot programozás" << std::endl; }
+                if (x.first == L"05_mosze") { std::wcout << L"Modern szoftverfejlesztési eszközök" << std::endl; }
+            }
+
+        }
     }
 }
