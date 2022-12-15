@@ -6,7 +6,10 @@ project(${This})
 
 set(CMAKE_CXX_STANDARD 14)
 
-
+file(GLOB MY_PUBLIC_HEADERS
+  "story/*.game"
+)
+file(COPY ${MY_PUBLIC_HEADERS} DESTINATION story)
 
 add_subdirectory(game)
 add_subdirectory(gtest)
